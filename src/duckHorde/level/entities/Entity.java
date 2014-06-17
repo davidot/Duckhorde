@@ -45,4 +45,9 @@ public abstract class Entity {
     public Level getLevel() {
         return level;
     }
+
+    public void setPoint(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 }

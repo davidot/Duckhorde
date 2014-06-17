@@ -2,6 +2,7 @@ package duckHorde.level;
 
 import duckHorde.graphics.Screen;
 import duckHorde.level.entities.Entity;
+import duckHorde.level.entities.Player;
 import duckHorde.level.tiles.Tile;
 
 import java.util.ArrayList;
@@ -18,6 +19,8 @@ public class Level {
 
     private final int[] tiles;
     private List<Entity> entities = new ArrayList<>();
+
+    private Player player;
 
     public Level(int width,int height) {
         this.height = height;
@@ -64,6 +67,10 @@ public class Level {
 
 
     public void add(Entity e) {
+        if(e instanceof Player && player==null) {
+            player = (Player)e;
+            e.setPoint(width/2,height/2);
+        }
         entities.add(e);
         e.setLevel(this);
     }
