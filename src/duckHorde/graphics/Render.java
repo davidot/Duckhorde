@@ -16,6 +16,12 @@ public class Render {
         pixels = new int[width * height];
     }
 
+    public void reset() {
+        for(int i=0;i<pixels.length;i++) {
+            pixels[i] = 0;
+        }
+    }
+
     public void draw(Render render, int xOff, int yOff) {
         for (int x = 0; x < render.width; x++) {
             int xNew = x + xOff;

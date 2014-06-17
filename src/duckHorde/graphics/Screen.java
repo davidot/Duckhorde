@@ -25,11 +25,8 @@ public class Screen extends Render {
    }
 
     public void render(Game game) {
-        for(int i = 0;i<pixels.length;i++) {
-            pixels[i] = 0;
-        }
-        game.level.render(this);
-
+        reset();
+        game.renderScreen(this);
 
     }
 }

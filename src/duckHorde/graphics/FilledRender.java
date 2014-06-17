@@ -12,5 +12,9 @@ public class FilledRender extends Render {
             pixels[i] = color;
         }
     }
+    @Override
+    public void draw(Render render, int xOff, int yOff) {
+        //Do nothing
+    }
 
 }
