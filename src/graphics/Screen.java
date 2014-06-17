@@ -14,7 +14,6 @@ public class Screen extends Render {
         test = new Render(200,200);
         Random rand = new Random();
         for(int i=0;i < 200 * 200;i++) {
-            System.out.println("adding:" + i);
             test.pixels[i] = rand.nextInt();
         }
     }
