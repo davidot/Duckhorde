@@ -14,6 +14,6 @@ public class WallTile extends Tile {
 
     @Override
     public boolean mayPass(Level level,int x,int y,Entity e) {
-        return false
+        return false;
     }
 }
