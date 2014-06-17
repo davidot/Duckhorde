@@ -1,5 +1,6 @@
 package level.tiles;
 
+import graphics.Screen;
 import level.Level;
 import level.entities.Entity;
 
@@ -52,5 +53,7 @@ public abstract class Tile {
     }
 
     public abstract boolean mayPass(Level level,int x,int y,Entity e);
+
+    public abstract void render(Screen screen,Level level,int x,int y);
 
 }
