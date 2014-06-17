@@ -1,4 +1,4 @@
-package graphics;
+package duckHorde.graphics;
 
 /**
  * Created by David on 14-6-2014.

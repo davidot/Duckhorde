@@ -1,7 +1,7 @@
-package level.tiles;
+package duckHorde.level.tiles;
 
-import level.Level;
-import level.entities.Entity;
+import duckHorde.level.Level;
+import duckHorde.level.entities.Entity;
 
 /**
  * Created by David on 17-6-2014.

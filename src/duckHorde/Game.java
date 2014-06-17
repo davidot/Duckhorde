@@ -1,4 +1,7 @@
-import graphics.Screen;
+package duckHorde;
+
+import duckHorde.graphics.Screen;
+import duckHorde.level.Level;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -18,8 +21,11 @@ public class Game extends Canvas implements Runnable {
     private static final int FIXED_WIDTH = 800;
     private static final int FIXED_HEIGHT = 450;
     private static final String TITLE = "Duck hordes";
+    private static final int LEVEL_WIDTH = 50;
+    private static final int LEVEL_HEIGHT = 50;
 
     private Screen screen;
+    public Level level;
     private boolean running;
     private BufferedImage renderImg;
     private int[] pixels;
@@ -32,6 +38,7 @@ public class Game extends Canvas implements Runnable {
         screen = new Screen(FIXED_WIDTH, FIXED_HEIGHT);
         renderImg = new BufferedImage(FIXED_WIDTH,FIXED_HEIGHT,BufferedImage.TYPE_INT_ARGB);
         pixels = ((DataBufferInt)renderImg.getRaster().getDataBuffer()).getData();
+        level = new Level(LEVEL_WIDTH,LEVEL_HEIGHT);
     }
 
 
@@ -79,7 +86,7 @@ public class Game extends Canvas implements Runnable {
         }
         //Rendering screen on image
 
-        screen.render();
+        screen.render(this);
 
         System.arraycopy(screen.pixels, 0, pixels, 0, pixels.length);
         //System array copy uses full blocks to copy faster(instead of individual)
@@ -110,7 +117,6 @@ public class Game extends Canvas implements Runnable {
         game.start();
 
     }
-
 
 
     public void start() {

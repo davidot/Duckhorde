@@ -1,7 +1,8 @@
-package level.tiles;
+package duckHorde.level.tiles;
 
-import level.Level;
-import level.entities.Entity;
+import duckHorde.graphics.Screen;
+import duckHorde.level.Level;
+import duckHorde.level.entities.Entity;
 
 /**
  * Created by David on 17-6-2014.
@@ -15,6 +16,11 @@ public class WallTile extends Tile {
     @Override
     public boolean mayPass(Level level,int x,int y,Entity e) {
         return false;
+    }
+
+    @Override
+    public void render(Screen screen, Level level, int x, int y) {
+
     }
 
 
