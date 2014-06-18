@@ -46,7 +46,7 @@ public class Game extends Canvas implements Runnable {
         pixels = ((DataBufferInt)renderImg.getRaster().getDataBuffer()).getData();
         level = new Level(LEVEL_WIDTH,LEVEL_HEIGHT);
         input = new Input(this);
-        input.unpressAll();
+        input.unpressedAll();
     }
 
 

@@ -12,11 +12,11 @@ public class Player extends Entity{
 
     private Input input;
     private int currentSlot;
-    private Gun[] guns = new Gun[9];
+    private Gun[] guns;
 
     public Player(int x, int y) {
         super(x, y);
-
+        guns = Gun.generateGunArray();
     }
 
     @Override

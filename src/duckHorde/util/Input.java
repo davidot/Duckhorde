@@ -54,9 +54,9 @@ public class Input implements KeyListener {
         }
     }
 
-    private List<Key> keys = new ArrayList<Key>();
+    private List<Key> keys = new ArrayList<>();
 
-    public List<Key> numberKeys;
+    public List<Key> numberKeys = new ArrayList<>();
 
     public Key down;
     public Key up;
@@ -109,7 +109,7 @@ public class Input implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
-    public void unpressAll() {
+    public void unpressedAll() {
         for(Key key : keys) {
             key.pressed = false;
         }
@@ -155,8 +155,8 @@ public class Input implements KeyListener {
         public abstract void onPress(KeyEvent e);
     }
 
-    public Key key(int[] ints) {
-        return new Key(ints);
+    public Key key(int[] integers) {
+        return new Key(integers);
     }
 
 }
