@@ -2,6 +2,7 @@ package duckHorde;
 
 import duckHorde.graphics.Screen;
 import duckHorde.level.Level;
+import duckHorde.util.Input;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -24,12 +25,17 @@ public class Game extends Canvas implements Runnable {
     private static final int LEVEL_WIDTH = 50;
     private static final int LEVEL_HEIGHT = 50;
 
+
+    /*  Rendering stuff */
     private Screen screen;
-    public Level level;
     private boolean running;
     private BufferedImage renderImg;
     private int[] pixels;
+
     private Thread mainThread;
+    /* Game stuff */
+    public Level level;
+    public Input input;
 
 
     public Game() {
@@ -39,6 +45,8 @@ public class Game extends Canvas implements Runnable {
         renderImg = new BufferedImage(FIXED_WIDTH,FIXED_HEIGHT,BufferedImage.TYPE_INT_ARGB);
         pixels = ((DataBufferInt)renderImg.getRaster().getDataBuffer()).getData();
         level = new Level(LEVEL_WIDTH,LEVEL_HEIGHT);
+        input = new Input(this);
+        input.unPressAll();
     }
 
 
@@ -99,6 +107,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick() {
+        input.tick();
         level.tick();
     }
 
