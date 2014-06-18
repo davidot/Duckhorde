@@ -1,5 +1,6 @@
 package duckHorde.level.tiles;
 
+import duckHorde.graphics.Screen;
 import duckHorde.level.Level;
 import duckHorde.level.entities.Entity;
 
@@ -15,6 +16,11 @@ public class AirTile extends Tile {
     @Override
     public boolean mayPass(Level level,int x,int y,Entity e) {
         return true;
+    }
+
+    @Override
+    public void render(Screen screen, Level level, int x, int y) {
+        //Do  nothing with air
     }
 
 }

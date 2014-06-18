@@ -44,7 +44,7 @@ public class Level {
         tiles[x + y * width] = t.getID();
     }
 
-    private Tile getTile(Tile t,int x,int y) {
+    private Tile getTile(int x,int y) {
         if(x < 0 || x >= width || y < 0 || y >= height) {
             return Tile.wall;
         }
@@ -59,7 +59,11 @@ public class Level {
 
     public void render(Screen screen) {
         //TODO render tiles
-
+        for(int x = 0; x < width; x++) {
+            for(int y = 0; y < height; y++) {
+                getTile(x,y).render(screen,this,x,y);
+            }
+        }
         for(Entity e:entities) {
             e.render(screen);
         }

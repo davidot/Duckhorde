@@ -17,20 +17,6 @@ public class Input implements KeyListener {
         initKeys();
     }
 
-    private void initKeys() {
-        down 		=	new Key(new int[] {KeyEvent.VK_DOWN, KeyEvent.VK_S});
-        up 		    =	new Key(new int[] {KeyEvent.VK_UP, KeyEvent.VK_W});
-        left 		=	new Key(new int[] {KeyEvent.VK_LEFT, KeyEvent.VK_A});
-        right 		=	new Key(new int[] {KeyEvent.VK_RIGHT, KeyEvent.VK_D});
-       /* numOne 	    =	new Key(new int[] {KeyEvent.VK_1});
-        numTwo 	    =	new Key(new int[] {KeyEvent.VK_2});
-        numThree 	=	new Key(new int[] {KeyEvent.VK_3});
-        numFour 	=	new Key(new int[] {KeyEvent.VK_4});
-        numFive 	=	new Key(new int[] {KeyEvent.VK_5});*/
-        attack  	=	new Key(new int[] {KeyEvent.VK_SPACE,KeyEvent.VK_C, KeyEvent.VK_ENTER});
-        escape 	    =	new Key(new int[] {KeyEvent.VK_ESCAPE});
-    }
-
     AnyKey pressEvent;
 
     public class Key {
@@ -70,18 +56,55 @@ public class Input implements KeyListener {
 
     private List<Key> keys = new ArrayList<Key>();
 
+    public List<Key> numberKeys;
+
     public Key down;
     public Key up;
     public Key left;
     public Key right;
-    /*public Key numOne;
-    public Key numTwo;
-    public Key numThree;
-    public Key numFour;
-    public Key numFive;*/
     public Key attack;
     public Key escape;
 
+    public Key numOne;
+    public Key numTwo;
+    public Key numThree;
+    public Key numFour;
+    public Key numFive;
+    public Key numSix;
+    public Key numSeven;
+    public Key numEight;
+    public Key numNine;
+
+    private void initKeys() {
+        down 		=	new Key(new int[] {KeyEvent.VK_DOWN, KeyEvent.VK_S});
+        up 		    =	new Key(new int[] {KeyEvent.VK_UP, KeyEvent.VK_W});
+        left 		=	new Key(new int[] {KeyEvent.VK_LEFT, KeyEvent.VK_A});
+        right 		=	new Key(new int[] {KeyEvent.VK_RIGHT, KeyEvent.VK_D});
+
+        //Numbers
+        numOne 	    =	new Key(new int[] {KeyEvent.VK_1});
+        numTwo 	    =	new Key(new int[] {KeyEvent.VK_2});
+        numThree 	=	new Key(new int[] {KeyEvent.VK_3});
+        numFour 	=	new Key(new int[] {KeyEvent.VK_4});
+        numFive 	=	new Key(new int[] {KeyEvent.VK_5});
+        numSix 	    =	new Key(new int[] {KeyEvent.VK_5});
+        numSeven 	=	new Key(new int[] {KeyEvent.VK_5});
+        numEight    =	new Key(new int[] {KeyEvent.VK_5});
+        numNine 	=	new Key(new int[] {KeyEvent.VK_5});
+
+        numberKeys.add(0,numOne);
+        numberKeys.add(numTwo);
+        numberKeys.add(numThree);
+        numberKeys.add(numFour);
+        numberKeys.add(numFive);
+        numberKeys.add(numSix);
+        numberKeys.add(numSeven);
+        numberKeys.add(numEight);
+        numberKeys.add(numNine);
+
+        attack  	=	new Key(new int[] {KeyEvent.VK_SPACE,KeyEvent.VK_C, KeyEvent.VK_ENTER});
+        escape 	    =	new Key(new int[] {KeyEvent.VK_ESCAPE});
+    }
     @Override
     public void keyTyped(KeyEvent e) {
     }

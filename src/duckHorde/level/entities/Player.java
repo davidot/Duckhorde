@@ -10,6 +10,7 @@ public class Player extends Entity{
 
 
     private Input input;
+    private int currentSlot;
 
     public Player(int x, int y) {
         super(x, y);
@@ -29,6 +30,12 @@ public class Player extends Entity{
         }
         if(input.down.clicked&&!input.up.clicked) {
             y++;
+        }
+        for(int i = 0; i <input.numberKeys.size(); i++) {
+            if(input.numberKeys.get(i).pressed) {
+                currentSlot = i;
+                break;
+            }
         }
     }
 
