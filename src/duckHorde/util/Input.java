@@ -109,7 +109,7 @@ public class Input implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
-    public void unPressAll() {
+    public void unpressAll() {
         for(Key key : keys) {
             key.pressed = false;
         }

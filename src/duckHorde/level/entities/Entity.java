@@ -11,6 +11,8 @@ import java.awt.Point;
  */
 public abstract class Entity {
 
+    protected Direction direction;
+
     protected int x;
     protected int y;
     protected Level level;

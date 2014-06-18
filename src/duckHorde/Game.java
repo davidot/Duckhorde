@@ -46,7 +46,7 @@ public class Game extends Canvas implements Runnable {
         pixels = ((DataBufferInt)renderImg.getRaster().getDataBuffer()).getData();
         level = new Level(LEVEL_WIDTH,LEVEL_HEIGHT);
         input = new Input(this);
-        input.unPressAll();
+        input.unpressAll();
     }
 
 
@@ -97,7 +97,7 @@ public class Game extends Canvas implements Runnable {
         screen.render(this);
 
         System.arraycopy(screen.pixels, 0, pixels, 0, pixels.length);
-        //System array copy uses full blocks to copy faster(instead of individual)
+        //System array copy uses full blocks to copy faster(instead of individual numbers)
 
         Graphics g = strategy.getDrawGraphics();
         g.clearRect(0,0,FIXED_WIDTH,FIXED_HEIGHT);
