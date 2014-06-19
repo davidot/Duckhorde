@@ -37,14 +37,14 @@ public class Level {
         setTile(Tile.wall,0,0);
     }
 
-    private void setTile(Tile t,int x,int y) {
+    public void setTile(Tile t,int x,int y) {
         if(x < 0 || x >= width || y < 0 || y >= height) {
             return;
         }
         tiles[x + y * width] = t.getID();
     }
 
-    private Tile getTile(int x,int y) {
+    public Tile getTile(int x,int y) {
         if(x < 0 || x >= width || y < 0 || y >= height) {
             return Tile.wall;
         }

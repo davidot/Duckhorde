@@ -56,32 +56,42 @@ public abstract class Entity {
     }
 
     public void move(Direction d,int speed) {
+        int xNew = x,yNew = y;
         switch (d) {
             case DOWN:
-                y += speed;
+                yNew += speed;
                 break;
             case UP:
-                y -= speed;
+                yNew -= speed;
                 break;
             case LEFT:
-                x -= speed;
+                xNew -= speed;
                 break;
             case RIGHT:
-                x += speed;
+                xNew += speed;
                 break;
         }
-        checkCollision();
+        if(!level.getTile(x >> 2,y >> 2).mayPass(level,x >> 2,y >> 2,this)) {
+            onCollisionTile();
+            return;
+        }
+        x = xNew;
+        y = yNew;
+        checkCollisionEntities();
     }
 
-    public void checkCollision() {
+    public void checkCollisionEntities() {
+
         for(Entity e:level.entities) {
             Rectangle thisSize = new Rectangle(this.getLocation(),this.getSize());
             Rectangle thatSize = new Rectangle(e.getLocation(),e.getSize());
-            if(thatSize.intersects(thatSize)) {
+            if(thisSize.intersects(thatSize)) {
                 e.touch(this);
             }
         }
     }
+
+    public abstract void onCollisionTile();
 
     public abstract Dimension getSize();
 }

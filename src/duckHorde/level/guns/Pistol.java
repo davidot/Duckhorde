@@ -2,7 +2,7 @@ package duckHorde.level.guns;
 
 import duckHorde.level.Level;
 import duckHorde.level.entities.Player;
-import duckHorde.level.entities.bullet.BulletPistol;
+import duckHorde.level.entities.bullets.BulletPistol;
 
 /**
  * Created by David on 18-6-2014.

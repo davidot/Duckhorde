@@ -44,8 +44,13 @@ public class Player extends Entity{
             }
         }
         if(input.attack.pressed) {
-
+            guns[currentSlot].fire(this,level);
         }
+    }
+
+    @Override
+    public void onCollisionTile() {
+
     }
 
     @Override
