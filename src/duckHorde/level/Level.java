@@ -18,7 +18,7 @@ public class Level {
     private final int height;
 
     private final int[] tiles;
-    private List<Entity> entities = new ArrayList<>();
+    public List<Entity> entities = new ArrayList<>();
 
     private Player player;
 

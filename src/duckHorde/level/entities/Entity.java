@@ -3,7 +3,9 @@ package duckHorde.level.entities;
 import duckHorde.graphics.Screen;
 import duckHorde.level.Level;
 
+import java.awt.Dimension;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 /**
  * Created by David on 17-6-2014.
@@ -44,12 +46,42 @@ public abstract class Entity {
         this.level = level;
     }
 
-    public Level getLevel() {
-        return level;
+    public Direction getDirection() {
+        return direction;
     }
 
     public void setPoint(int x, int y) {
         this.x = x;
         this.y = y;
     }
+
+    public void move(Direction d,int speed) {
+        switch (d) {
+            case DOWN:
+                y += speed;
+                break;
+            case UP:
+                y -= speed;
+                break;
+            case LEFT:
+                x -= speed;
+                break;
+            case RIGHT:
+                x += speed;
+                break;
+        }
+        checkCollision();
+    }
+
+    public void checkCollision() {
+        for(Entity e:level.entities) {
+            Rectangle thisSize = new Rectangle(this.getLocation(),this.getSize());
+            Rectangle thatSize = new Rectangle(e.getLocation(),e.getSize());
+            if(thatSize.intersects(thatSize)) {
+                e.touch(this);
+            }
+        }
+    }
+
+    public abstract Dimension getSize();
 }

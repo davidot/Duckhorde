@@ -3,6 +3,8 @@ package duckHorde.level.entities;
 import duckHorde.level.guns.Gun;
 import duckHorde.util.Input;
 
+import java.awt.Dimension;
+
 /**
  * Created by David on 17-6-2014.
  * Duck hordes
@@ -44,6 +46,11 @@ public class Player extends Entity{
         if(input.attack.pressed) {
 
         }
+    }
+
+    @Override
+    public Dimension getSize() {
+        return new Dimension(32,32);
     }
 
     public void setInput(Input input) {
