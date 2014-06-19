@@ -22,6 +22,14 @@ public abstract class Gun {
         return ammo;
     }
 
+    public void useAmmo() {
+        if(maxAmmo>0){
+            if(ammo > 0){
+                ammo--;
+            }
+        }
+    }
+
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
@@ -32,7 +40,14 @@ public abstract class Gun {
 
     public abstract String getName();
 
-    public abstract void shoot(Player p,Level l);
+    public abstract void shoot(Player p,Level level);
+
+    public void fire(Player p,Level l) {
+        if(getAmmo() !=0) {
+            shoot(p,l);
+            useAmmo();
+        }
+    }
 
     public static Gun[] generateGunArray() {
         Gun[] guns = new Gun[9];
