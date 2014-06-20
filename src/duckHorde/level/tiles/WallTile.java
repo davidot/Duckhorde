@@ -1,5 +1,7 @@
 package duckHorde.level.tiles;
 
+import duckHorde.Game;
+import duckHorde.graphics.Color;
 import duckHorde.graphics.Screen;
 import duckHorde.level.Level;
 import duckHorde.level.entities.Entity;
@@ -20,7 +22,7 @@ public class WallTile extends Tile {
 
     @Override
     public void render(Screen screen, Level level, int x, int y) {
-
+        screen.fillRect(Game.PIXEL * x,Game.PIXEL * y,Game.PIXEL, Game.PIXEL, Color.create(0, 0, 0));
     }
 
 

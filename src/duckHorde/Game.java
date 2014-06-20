@@ -24,6 +24,7 @@ public class Game extends Canvas implements Runnable {
     private static final String TITLE = "Duck hordes";
     private static final int LEVEL_WIDTH = 50;
     private static final int LEVEL_HEIGHT = 50;
+    public static final int PIXEL = 32;
 
 
     /*  Rendering stuff */
@@ -43,11 +44,12 @@ public class Game extends Canvas implements Runnable {
         Dimension prefSize = new Dimension(FIXED_WIDTH, FIXED_HEIGHT);
         this.setPreferredSize(prefSize);
         screen = new Screen(FIXED_WIDTH, FIXED_HEIGHT);
-        renderImg = new BufferedImage(FIXED_WIDTH,FIXED_HEIGHT,BufferedImage.TYPE_INT_ARGB);
+        renderImg = new BufferedImage(FIXED_WIDTH,FIXED_HEIGHT,BufferedImage.TYPE_INT_RGB);
         pixels = ((DataBufferInt)renderImg.getRaster().getDataBuffer()).getData();
         level = new Level(LEVEL_WIDTH,LEVEL_HEIGHT);
         input = new Input(this);
         input.unpressedAll();
+
     }
 
 
@@ -101,7 +103,7 @@ public class Game extends Canvas implements Runnable {
         //System array copy uses full blocks to copy faster(instead of individual numbers)
 
         Graphics g = strategy.getDrawGraphics();
-        g.clearRect(0,0,FIXED_WIDTH,FIXED_HEIGHT);
+        //g.clearRect(0,0,FIXED_WIDTH,FIXED_HEIGHT);
         g.drawImage(renderImg,0,0,null);
         g.dispose();
         strategy.show();
