@@ -4,6 +4,7 @@ import duckHorde.graphics.Screen;
 import duckHorde.level.Level;
 import duckHorde.util.Input;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import java.awt.Canvas;
@@ -12,6 +13,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.io.IOException;
 
 /**
  * Created by David on 14-6-2014.
@@ -38,6 +40,7 @@ public class Game extends Canvas implements Runnable {
     public Level level;
     public Input input;
     public int gameTime;
+    private BufferedImage test;
 
 
     public Game() {
@@ -49,7 +52,11 @@ public class Game extends Canvas implements Runnable {
         level = new Level(LEVEL_WIDTH,LEVEL_HEIGHT);
         input = new Input(this);
         input.unpressedAll();
-
+        try {
+            test = ImageIO.read(Game.class.getResourceAsStream("res/img/test.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -155,7 +162,7 @@ public class Game extends Canvas implements Runnable {
 
     public void renderScreen(Screen screen) {
         level.render(screen);
-
+        screen.drawImage(test,64,64);
 
     }
 }
