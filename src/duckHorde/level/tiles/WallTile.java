@@ -22,7 +22,7 @@ public class WallTile extends Tile {
 
     @Override
     public void render(Screen screen, Level level, int x, int y) {
-        screen.fillRect(Game.PIXEL * x,Game.PIXEL * y,Game.PIXEL, Game.PIXEL, Color.create(0, 0, 0));
+        screen.fillRect(Game.PIXEL * x,Game.PIXEL * y,Game.PIXEL, Game.PIXEL, Color.createAlpha(255, 0, 0, 255));
     }
 
 
