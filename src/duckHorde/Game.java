@@ -36,6 +36,7 @@ public class Game extends Canvas implements Runnable {
     /* Game stuff */
     public Level level;
     public Input input;
+    public int gameTime;
 
 
     public Game() {
@@ -107,6 +108,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick() {
+        gameTime++;
         input.tick();
         level.tick();
     }
@@ -151,5 +153,7 @@ public class Game extends Canvas implements Runnable {
 
     public void renderScreen(Screen screen) {
         level.render(screen);
+
+
     }
 }

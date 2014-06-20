@@ -18,6 +18,7 @@ public abstract class Entity {
     protected int x;
     protected int y;
     protected Level level;
+    public boolean removed;
 
     public Entity(int x,int y) {
         this.x = x;
@@ -77,6 +78,7 @@ public abstract class Entity {
         }
         x = xNew;
         y = yNew;
+
         checkCollisionEntities();
     }
 
@@ -94,4 +96,8 @@ public abstract class Entity {
     public abstract void onCollisionTile();
 
     public abstract Dimension getSize();
+
+    public void remove() {
+        removed = true;
+    }
 }

@@ -6,6 +6,7 @@ import duckHorde.level.entities.Player;
 import duckHorde.level.tiles.Tile;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -54,6 +55,12 @@ public class Level {
     public void tick() {
         for(Entity e:entities) {
             e.tick();
+        }
+        for(Iterator<Entity> i = entities.iterator(); i.hasNext(); ) {
+            Entity e = i.next();
+            if(e.removed) {
+                entities.remove(e);
+            }
         }
     }
 
