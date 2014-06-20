@@ -9,6 +9,6 @@ import java.awt.image.BufferedImage;
 public class ImageRender extends Render {
     public ImageRender(BufferedImage img) {
         super(img.getWidth(),img.getHeight());
-        this.pixels = img.getRGB(0,0,width,height,null,0,1);
+        this.pixels = img.getRGB(0,0,width,height,null,0,width);
     }
 }

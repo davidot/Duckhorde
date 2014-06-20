@@ -1,5 +1,6 @@
 package duckHorde;
 
+import duckHorde.graphics.ImageRender;
 import duckHorde.graphics.Screen;
 import duckHorde.level.Level;
 import duckHorde.util.Input;
@@ -40,20 +41,20 @@ public class Game extends Canvas implements Runnable {
     public Level level;
     public Input input;
     public int gameTime;
-    private BufferedImage test;
+    private ImageRender testRender;
 
 
     public Game() {
         Dimension prefSize = new Dimension(FIXED_WIDTH, FIXED_HEIGHT);
         this.setPreferredSize(prefSize);
         screen = new Screen(FIXED_WIDTH, FIXED_HEIGHT);
-        renderImg = new BufferedImage(FIXED_WIDTH,FIXED_HEIGHT,BufferedImage.TYPE_INT_RGB);
+        renderImg = new BufferedImage(FIXED_WIDTH,FIXED_HEIGHT,BufferedImage.TYPE_INT_ARGB);
         pixels = ((DataBufferInt)renderImg.getRaster().getDataBuffer()).getData();
         level = new Level(LEVEL_WIDTH,LEVEL_HEIGHT);
         input = new Input(this);
         input.unpressedAll();
         try {
-            test = ImageIO.read(Game.class.getResourceAsStream("res/img/test.png"));
+            testRender = new ImageRender(ImageIO.read(Game.class.getResourceAsStream("res/img/test.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -110,7 +111,7 @@ public class Game extends Canvas implements Runnable {
         //System array copy uses full blocks to copy faster(instead of individual numbers)
 
         Graphics g = strategy.getDrawGraphics();
-        //g.clearRect(0,0,FIXED_WIDTH,FIXED_HEIGHT);
+        g.clearRect(0,0,FIXED_WIDTH,FIXED_HEIGHT);
         g.drawImage(renderImg,0,0,null);
         g.dispose();
         strategy.show();
@@ -162,7 +163,7 @@ public class Game extends Canvas implements Runnable {
 
     public void renderScreen(Screen screen) {
         level.render(screen);
-        screen.drawImage(test,64,64);
+        screen.draw(testRender,64, 64);
 
     }
 }
