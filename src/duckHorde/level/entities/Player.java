@@ -12,6 +12,9 @@ import java.awt.Dimension;
 public class Player extends Entity{
 
 
+    public static final int weaponXOff = 4;
+    public static final int weaponYOff = 0;
+
     private Input input;
     private int currentSlot;
     private Gun[] guns;

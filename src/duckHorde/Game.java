@@ -54,7 +54,7 @@ public class Game extends Canvas implements Runnable {
         input = new Input(this);
         input.unpressedAll();
         try {
-            testRender = new ImageRender(ImageIO.read(Game.class.getResourceAsStream("res/img/test.png")));
+            testRender = new ImageRender(ImageIO.read(Game.class.getResourceAsStream("res/img/player.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }

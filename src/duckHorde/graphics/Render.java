@@ -1,5 +1,7 @@
 package duckHorde.graphics;
 
+import duckHorde.level.entities.Direction;
+
 /**
  * Created by David on 14-6-2014.
  * Duck hordes
@@ -35,6 +37,25 @@ public class Render {
                 }
                 pixels[xNew + yNew * width] = render.pixels[x + y * render.width];
             }
+        }
+    }
+
+
+
+    public void drawRotate(Render render,int xOff,int yOff,Direction dir) {
+        switch (dir) {
+            case RIGHT:
+
+                break;
+            case LEFT:
+
+                break;
+            case UP:
+                draw(render,xOff,yOff);
+                break;
+            case DOWN:
+
+                break;
         }
     }
 
