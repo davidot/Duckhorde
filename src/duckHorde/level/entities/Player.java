@@ -40,15 +40,19 @@ public class Player extends Entity{
         }
         for(int i = 0; i <input.numberKeys.size(); i++) {
             if(input.numberKeys.get(i).pressed) {
-                if(guns[i].getAmmo() > 0) {
-                    currentSlot = i;
-                    break;
-                }
+               setCurrentSlot(i);
             }
         }
         if(input.attack.pressed) {
             guns[currentSlot].fire(this,level);
+            checkGun();
         }
+    }
+
+    private void checkGun() {
+
+
+
     }
 
     @Override
@@ -63,5 +67,24 @@ public class Player extends Entity{
 
     public void setInput(Input input) {
         this.input = input;
+    }
+
+    public boolean gunReady(int slot) {
+        if(slot < 0 || slot >= guns.length) {
+            return false;
+        }
+        Gun g = guns[slot];
+        if(!g.isEnabled()||g.getAmmo()==0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public void setCurrentSlot(int newSlot) {
+        if(!gunReady(newSlot)) {
+            return;
+        }
+        currentSlot = newSlot;
     }
 }

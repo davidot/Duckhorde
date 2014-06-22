@@ -13,7 +13,7 @@ public class FilledRender extends Render {
         }
     }
     @Override
-    public void draw(Render render, int xOff, int yOff) {
+    public void draw(Render render, int xPos, int yPos) {
         //Do nothing
     }
 

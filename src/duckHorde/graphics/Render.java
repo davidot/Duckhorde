@@ -24,14 +24,14 @@ public class Render {
         }
     }
 
-    public void draw(Render render, int xOff, int yOff) {
+    public void draw(Render render, int xPos, int yPos) {
         for (int x = 0; x < render.width; x++) {
-            int xNew = x + xOff;
+            int xNew = x + xPos;
             if (xNew < 0 || xNew >= width) {
                 continue;
             }
             for (int y = 0; y < render.height; y++) {
-                int yNew = y + yOff;
+                int yNew = y + yPos;
                 if (yNew < 0 || yNew >= height) {
                     continue;
                 }
@@ -40,9 +40,26 @@ public class Render {
         }
     }
 
+    public void drawYRev(Render render, int xPos, int yPos) {
+        for (int x = 0; x < render.width; x++) {
+            int xNew = x + xPos;
+            if (xNew < 0 || xNew >= width) {
+                continue;
+            }
+            for (int y = 0; y < render.height; y++) {
+                int yNew = y + yPos;
+                if (yNew < 0 || yNew >= height) {
+                    continue;
+                }
+                pixels[xNew + yNew * width] = render.pixels[x + ((render.height-1) - y) * render.width];
+            }
+        }
+    }
 
 
-    public void drawRotate(Render render,int xOff,int yOff,Direction dir) {
+
+
+    public void drawRotate(Render render,int xPos,int yPos,Direction dir) {
         switch (dir) {
             case RIGHT:
 
@@ -51,10 +68,10 @@ public class Render {
 
                 break;
             case UP:
-                draw(render,xOff,yOff);
+                draw(render,xPos,yPos);
                 break;
             case DOWN:
-
+                drawYRev(render,xPos,yPos);
                 break;
         }
     }
