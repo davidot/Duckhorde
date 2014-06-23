@@ -12,10 +12,12 @@ import java.awt.Dimension;
 public class Bullet extends Entity {
 
     private int speed;
+    private int damage;
 
-    public Bullet(Direction direction, int speed,int x,int y) {
+    public Bullet(Direction direction, int speed,int damage,int x,int y) {
         super(x,y);
         this.speed = speed;
+        this.damage = damage;
         this.direction = direction;
     }
 
@@ -34,4 +36,7 @@ public class Bullet extends Entity {
         return new Dimension(2,2);
     }
 
+    public int getDamage() {
+        return damage;
+    }
 }

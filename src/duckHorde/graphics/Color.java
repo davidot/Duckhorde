@@ -10,7 +10,7 @@ public class Color {
            return ((a % 256) << 24) + ((r % 256) << 16) + ((g % 256) << 8) + (b%256);
        }
 
-       public static int create(int r,int g,int b) {
+       public static int create(int r, int g, int b) {
            return createAlpha(r, g, b, 255);
        }
 

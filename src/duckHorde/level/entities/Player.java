@@ -26,7 +26,7 @@ public class Player extends Entity{
     private ImageRender img;
     private int speed = 1;
 
-    public Player(int x, int y) {
+    public Player(int x,int y) {
         super(x, y);
         guns = Gun.generateGunArray();
         try {

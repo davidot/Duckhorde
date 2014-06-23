@@ -19,16 +19,19 @@ public class Level {
     private final int height;
 
     private final int[] tiles;
+    private final int[] data;
     public List<Entity> entities = new ArrayList<>();
 
     private Player player;
 
-    public Level(int width,int height) {
+    public Level(int width, int height) {
         this.height = height;
         this.width = width;
         tiles = new int[height * width];
+        data = new int[height * width];
         for(int i=0;i<tiles.length;i++) {
             tiles[i] = Tile.air.getID();
+            data[i] = 0;
         }
         generateTest();
     }
@@ -38,11 +41,12 @@ public class Level {
         setTile(Tile.wall,0,0);
     }
 
-    public void setTile(Tile t,int x,int y) {
+    public void setTile( Tile t,int x,int y) {
         if(x < 0 || x >= width || y < 0 || y >= height) {
             return;
         }
         tiles[x + y * width] = t.getID();
+        setData(0,x,y);
     }
 
     public Tile getTile(int x,int y) {
@@ -84,6 +88,20 @@ public class Level {
         }
         entities.add(e);
         e.setLevel(this);
+    }
+
+    public int getData(int x, int y) {
+        if(x < 0 || x >= width || y < 0 || y >= height) {
+            return 0;
+        }
+        return data[x + y * width];
+    }
+
+    public void setData(int d,int x,int y) {
+        if(x < 0 || x >= width || y < 0 || y >= height) {
+            return;
+        }
+        data[x + y * width] = d;
     }
 
 }

@@ -7,7 +7,7 @@ import duckHorde.level.entities.Direction;
  * Duck hordes
  */
 public class BulletShotGun extends Bullet{
-    public BulletShotGun(Direction direction, int speed, int x, int y) {
-        super(direction, speed, x, y);
+    public BulletShotGun(Direction direction, int speed,int damage,int x, int y) {
+        super(direction, speed,damage, x, y);
     }
 }

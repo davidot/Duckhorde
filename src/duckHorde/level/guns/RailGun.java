@@ -10,7 +10,7 @@ import duckHorde.level.entities.Player;
 public class RailGun extends Gun {
     @Override
     public String getName() {
-        return "Railguns";
+        return "Railgun";
     }
 
     @Override
