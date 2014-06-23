@@ -16,6 +16,8 @@ public abstract class Gun {
      * If maxAmmo is less than 0 infinite ammo is used
      */
     private int maxAmmo = -1;
+    private int speed = 8;
+    private int damage = 1;
 
 
     public int getAmmo() {
@@ -62,4 +64,13 @@ public abstract class Gun {
         guns[8] = new RailGun();
         return guns;
     }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
 }

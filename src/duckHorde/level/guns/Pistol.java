@@ -33,6 +33,6 @@ public class Pistol extends Gun {
 
     @Override
     public void shoot(Player p, Level l) {
-        l.add(new BulletPistol(p.getDirection(),speed,p.getLocation().x,p.getLocation().y));
+        l.add(new BulletPistol(p.getDirection(),this,p.getLocation().x,p.getLocation().y));
     }
 }

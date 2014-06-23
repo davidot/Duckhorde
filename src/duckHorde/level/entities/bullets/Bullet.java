@@ -2,6 +2,7 @@ package duckHorde.level.entities.bullets;
 
 import duckHorde.level.entities.Direction;
 import duckHorde.level.entities.Entity;
+import duckHorde.level.guns.Gun;
 
 import java.awt.Dimension;
 
@@ -14,10 +15,10 @@ public class Bullet extends Entity {
     private int speed;
     private int damage;
 
-    public Bullet(Direction direction, int speed,int damage,int x,int y) {
+    public Bullet(Direction direction,Gun gun,int x,int y) {
         super(x,y);
-        this.speed = speed;
-        this.damage = damage;
+        this.speed = gun.getSpeed();
+        this.damage = gun.getDamage();
         this.direction = direction;
     }
 
