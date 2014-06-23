@@ -5,26 +5,26 @@ import duckHorde.level.Level;
 import duckHorde.level.entities.Entity;
 
 /**
- * Created by David on 17-6-2014.
+ * Created by David on 23-6-2014.
  * Duck hordes
  */
-public class AirTile extends Tile {
-    public AirTile(int id) {
+public class PlacedWallTile extends Tile{
+    public PlacedWallTile(int id) {
         super(id);
     }
 
     @Override
-    public boolean mayPass(Level level,int x,int y,Entity e) {
-        return true;
+    public boolean mayPass(Level level, int x, int y, Entity e) {
+        return false;
     }
 
     @Override
     public void render(Screen screen, Level level, int x, int y) {
-        //Do  nothing with air
+
     }
 
     @Override
     public void onTouch(Level level, int x, int y, Entity e) {
-        return;
+
     }
 }

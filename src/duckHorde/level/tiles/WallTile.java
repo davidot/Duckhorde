@@ -25,5 +25,8 @@ public class WallTile extends Tile {
         screen.fillRect(Game.PIXEL * x,Game.PIXEL * y,Game.PIXEL, Game.PIXEL, Color.create(0, 255, 0));
     }
 
-
+    @Override
+    public void onTouch(Level level, int x, int y, Entity e) {
+        return;
+    }
 }

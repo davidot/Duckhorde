@@ -10,12 +10,12 @@ import duckHorde.level.entities.Entity;
  */
 public abstract class Tile {
 
-    private int id;
 
     private static final Tile[] tiles = new Tile[16];
     public static final Tile air = new AirTile(0);
     public static final Tile wall = new WallTile(1);
 
+    private int id;
 
     public Tile(int id) {
         if(getTileNull(id)!=null) {
@@ -55,5 +55,14 @@ public abstract class Tile {
     public abstract boolean mayPass(Level level,int x,int y,Entity e);
 
     public abstract void render(Screen screen,Level level,int x,int y);
+
+    /**
+     * Called when something steps on or hits a tile
+     * @param level The level in which the tile is located
+     * @param x the x coordinate from the tile called
+     * @param y the y coordinate from the tile called
+     * @param e the Entity which touched the block
+     */
+    public abstract void onTouch(Level level,int x,int y,Entity e);
 
 }
