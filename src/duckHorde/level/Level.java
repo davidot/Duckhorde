@@ -86,5 +86,4 @@ public class Level {
         e.setLevel(this);
     }
 
-
 }

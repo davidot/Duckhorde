@@ -13,7 +13,7 @@ import java.awt.Rectangle;
  */
 public abstract class Entity {
 
-    protected Direction direction;
+    protected Direction direction = Direction.UP;
 
     protected int x;
     protected int y;
@@ -57,6 +57,7 @@ public abstract class Entity {
     }
 
     public void move(Direction d,int speed) {
+        System.out.println("Moving " + d + "with " + speed + "as " + this.getClass().getName());
         int xNew = x,yNew = y;
         switch (d) {
             case DOWN:
@@ -72,7 +73,7 @@ public abstract class Entity {
                 xNew += speed;
                 break;
         }
-        if(!level.getTile(x >> 2,y >> 2).mayPass(level,x >> 2,y >> 2,this)) {
+        if(!level.getTile(x >> 4,y >> 4).mayPass(level,x >> 4,y >> 4,this)) {
             onCollisionTile();
             return;
         }

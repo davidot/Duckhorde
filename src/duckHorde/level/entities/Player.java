@@ -1,9 +1,14 @@
 package duckHorde.level.entities;
 
+import duckHorde.Game;
+import duckHorde.graphics.ImageRender;
+import duckHorde.graphics.Screen;
 import duckHorde.level.guns.Gun;
 import duckHorde.util.Input;
 
+import javax.imageio.ImageIO;
 import java.awt.Dimension;
+import java.io.IOException;
 
 /**
  * Created by David on 17-6-2014.
@@ -18,25 +23,32 @@ public class Player extends Entity{
     private Input input;
     private int currentSlot;
     private Gun[] guns;
+    private ImageRender img;
+    private int speed = 1;
 
     public Player(int x, int y) {
         super(x, y);
         guns = Gun.generateGunArray();
+        try {
+            img = new ImageRender(ImageIO.read(Game.class.getResourceAsStream("res/img/player.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void tick() {
         if(input.left.clicked&&!input.right.clicked) {
-            x--;
+            move(Direction.LEFT,speed);
         }
         if(input.right.clicked&&!input.left.clicked) {
-            x++;
+           move(Direction.RIGHT,speed);
         }
         if(input.up.clicked&&!input.down.clicked) {
-            y--;
+            move(Direction.UP,speed);
         }
         if(input.down.clicked&&!input.up.clicked) {
-            y++;
+            move(Direction.DOWN,speed);
         }
         for(int i = 0; i <input.numberKeys.size(); i++) {
             if(input.numberKeys.get(i).pressed) {
@@ -50,8 +62,16 @@ public class Player extends Entity{
     }
 
     private void checkGun() {
-
-
+        if(gunReady(currentSlot)) {
+            return;
+        }
+        while(!gunReady(currentSlot)) {
+            currentSlot--;
+            if(currentSlot<0) {
+                currentSlot = 0;
+                break;
+            }
+        }
 
     }
 
@@ -86,5 +106,10 @@ public class Player extends Entity{
             return;
         }
         currentSlot = newSlot;
+    }
+
+    @Override
+    public void render(Screen screen) {
+        screen.drawRotate(img,x,y,direction);
     }
 }
