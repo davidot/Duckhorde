@@ -161,6 +161,5 @@ public class Game extends Canvas implements Runnable {
 
     public void renderScreen(Screen screen) {
         level.render(screen);
-
     }
 }

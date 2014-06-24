@@ -29,7 +29,7 @@ public class Bullet extends Entity {
 
     @Override
     public void onCollisionTile() {
-
+        remove();
     }
 
     @Override

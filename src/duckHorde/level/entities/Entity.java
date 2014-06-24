@@ -73,13 +73,17 @@ public abstract class Entity {
                 xNew += speed;
                 break;
         }
-        if(!level.getTile(x >> 4,y >> 4).mayPass(level,x >> 4,y >> 4,this)) {
+        int xLevel = xNew /16, yLevel = yNew /16;
+        System.out.println("X:" + xNew + "Y:" + yNew);
+        System.out.println("XLEVEL:" + xLevel + "YLEVEL:" + yLevel);
+        if(!level.getTile(xLevel,yLevel).mayPass(level,xLevel,yLevel,this)) {
             onCollisionTile();
+            level.getTile(xLevel,yLevel).onTouch(level,xLevel,yLevel,this);
             return;
         }
         x = xNew;
         y = yNew;
-
+        direction = d;
         checkCollisionEntities();
     }
 

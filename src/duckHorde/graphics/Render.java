@@ -56,16 +56,62 @@ public class Render {
         }
     }
 
+    public void drawXRev(Render render, int xPos, int yPos) {
+        for (int x = 0; x < render.width; x++) {
+            int xNew = x + xPos;
+            if (xNew < 0 || xNew >= width) {
+                continue;
+            }
+            for (int y = 0; y < render.height; y++) {
+                int yNew = y + yPos;
+                if (yNew < 0 || yNew >= height) {
+                    continue;
+                }
+                pixels[xNew + yNew * width] = render.pixels[((render.width-1)-x) +  y * render.width];
+            }
+        }
+    }
 
+    public void drawFlipLeft(Render render, int xPos, int yPos) {
+        for (int x = 0; x < render.width; x++) {
+            int xNew = x + xPos;
+            if (xNew < 0 || xNew >= width) {
+                continue;
+            }
+            for (int y = 0; y < render.height; y++) {
+                int yNew = y + yPos;
+                if (yNew < 0 || yNew >= height) {
+                    continue;
+                }
+                pixels[xNew + yNew * width] = render.pixels[y + x * render.width];
+            }
+        }
+    }
+
+    public void drawFlipRight(Render render, int xPos, int yPos) {
+        for (int x = 0; x < render.width; x++) {
+            int xNew = x + xPos;
+            if (xNew < 0 || xNew >= width) {
+                continue;
+            }
+            for (int y = 0; y < render.height; y++) {
+                int yNew = y + yPos;
+                if (yNew < 0 || yNew >= height) {
+                    continue;
+                }
+                pixels[xNew + yNew * width] = render.pixels[((render.height-1) - y) + ((render.width-1)-x) * render.width];
+            }
+        }
+    }
 
 
     public void drawRotate(Render render,int xPos,int yPos,Direction dir) {
         switch (dir) {
             case RIGHT:
-
+                drawFlipRight(render,xPos,yPos);
                 break;
             case LEFT:
-
+                drawFlipLeft(render,xPos,yPos);
                 break;
             case UP:
                 draw(render,xPos,yPos);
