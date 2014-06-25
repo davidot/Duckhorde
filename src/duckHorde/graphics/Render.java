@@ -49,6 +49,12 @@ public class Render {
     }
 
     public void drawYRev(Render render, int xPos, int yPos) {
+        if(xPos > (xOffset + width) || (xPos + render.width) < xOffset) {
+            return;
+        }
+        if(yPos > (yOffset + height) || (yPos + render.height) < yOffset) {
+            return;
+        }
         for (int x = 0; x < render.width; x++) {
             int xNew = x + xPos;
             if (xNew < 0 || xNew >= width) {
@@ -65,6 +71,12 @@ public class Render {
     }
 
     public void drawXRev(Render render, int xPos, int yPos) {
+        if(xPos > (xOffset + width) || (xPos + render.width) < xOffset) {
+            return;
+        }
+        if(yPos > (yOffset + height) || (yPos + render.height) < yOffset) {
+            return;
+        }
         for (int x = 0; x < render.width; x++) {
             int xNew = x + xPos;
             if (xNew < 0 || xNew >= width) {
@@ -81,6 +93,12 @@ public class Render {
     }
 
     public void drawFlipLeft(Render render, int xPos, int yPos) {
+        if(xPos > (xOffset + width) || (xPos + render.width) < xOffset) {
+            return;
+        }
+        if(yPos > (yOffset + height) || (yPos + render.height) < yOffset) {
+            return;
+        }
         for (int x = 0; x < render.width; x++) {
             int xNew = x + xPos;
             if (xNew < 0 || xNew >= width) {
@@ -97,6 +115,12 @@ public class Render {
     }
 
     public void drawFlipRight(Render render, int xPos, int yPos) {
+        if(xPos > (xOffset + width) || (xPos + render.width) < xOffset) {
+            return;
+        }
+        if(yPos > (yOffset + height) || (yPos + render.height) < yOffset) {
+            return;
+        }
         for (int x = 0; x < render.width; x++) {
             int xNew = x + xPos;
             if (xNew < 0 || xNew >= width) {
