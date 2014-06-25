@@ -11,6 +11,8 @@ public class Render {
     public int width;
     public int height;
     public int[] pixels;
+    public int xOffset = 0;
+    public int yOffset = 0;
 
     public Render(int width, int height) {
         this.width = width;
@@ -25,6 +27,12 @@ public class Render {
     }
 
     public void draw(Render render, int xPos, int yPos) {
+        if(xPos > (xOffset + width) || (xPos + render.width) < xOffset) {
+            return;
+        }
+        if(yPos > (yOffset + height) || (yPos + render.height) < yOffset) {
+            return;
+        }
         for (int x = 0; x < render.width; x++) {
             int xNew = x + xPos;
             if (xNew < 0 || xNew >= width) {

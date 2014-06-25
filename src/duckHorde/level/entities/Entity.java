@@ -73,7 +73,7 @@ public abstract class Entity {
                 xNew += speed;
                 break;
         }
-        int xLevel = xNew /16, yLevel = yNew /16;
+        int xLevel = xNew /32, yLevel = yNew /32;
         System.out.println("X:" + xNew + "Y:" + yNew);
         System.out.println("XLEVEL:" + xLevel + "YLEVEL:" + yLevel);
         if(!level.getTile(xLevel,yLevel).mayPass(level,xLevel,yLevel,this)) {

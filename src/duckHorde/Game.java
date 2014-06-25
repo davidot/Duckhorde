@@ -52,7 +52,7 @@ public class Game extends Canvas implements Runnable {
         level = new Level(LEVEL_WIDTH,LEVEL_HEIGHT);
         input = new Input(this);
         input.unpressedAll();
-        player = new Player(1,1);
+        player = new Player(50,50);
         player.setInput(input);
         level.add(player);
 
@@ -106,6 +106,9 @@ public class Game extends Canvas implements Runnable {
         screen.render(this);
 
         System.arraycopy(screen.pixels, 0, pixels, 0, pixels.length);
+        /* for(int i = 0;i<pixels.length;i++) {
+            pixels[i] = screen.pixels[i];
+        }*/
         //System array copy uses full blocks to copy faster(instead of individual numbers)
 
         Graphics g = strategy.getDrawGraphics();
