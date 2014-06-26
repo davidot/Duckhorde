@@ -1,5 +1,6 @@
 package duckHorde.level.guns;
 
+import duckHorde.graphics.Render;
 import duckHorde.level.Level;
 import duckHorde.level.entities.Player;
 import duckHorde.level.entities.bullets.BulletPistol;
@@ -34,5 +35,10 @@ public class Pistol extends Gun {
     @Override
     public void shoot(Player p, Level l) {
         l.add(new BulletPistol(p.getDirection(),this,p.getLocation().x,p.getLocation().y));
+    }
+
+    @Override
+    public void render(Render render) {
+
     }
 }

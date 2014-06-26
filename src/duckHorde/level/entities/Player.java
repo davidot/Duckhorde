@@ -2,6 +2,7 @@ package duckHorde.level.entities;
 
 import duckHorde.Game;
 import duckHorde.graphics.ImageRender;
+import duckHorde.graphics.Render;
 import duckHorde.graphics.Screen;
 import duckHorde.level.guns.Gun;
 import duckHorde.util.Input;
@@ -110,6 +111,9 @@ public class Player extends Entity{
 
     @Override
     public void render(Screen screen) {
-        screen.drawRotate(img,x,y,direction);
+        Render render = new Render(img.width,img.height);
+        guns[currentSlot].render(render);
+        screen.drawRotate(render,x,y,direction);
+
     }
 }

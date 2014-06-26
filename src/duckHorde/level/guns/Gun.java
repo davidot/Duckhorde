@@ -1,5 +1,6 @@
 package duckHorde.level.guns;
 
+import duckHorde.graphics.Render;
 import duckHorde.level.Level;
 import duckHorde.level.entities.Player;
 
@@ -73,4 +74,5 @@ public abstract class Gun {
         return damage;
     }
 
+    public abstract void render(Render render);
 }
