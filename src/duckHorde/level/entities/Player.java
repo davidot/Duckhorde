@@ -22,7 +22,7 @@ public class Player extends Entity{
     public static final int weaponYOff = 0;
 
     private Input input;
-    private int currentSlot;
+    private int currentSlot = 0;
     private Gun[] guns;
     private ImageRender img;
     private int speed = 1;
@@ -112,6 +112,7 @@ public class Player extends Entity{
     @Override
     public void render(Screen screen) {
         Render render = new Render(img.width,img.height);
+        render.draw(img,0,0);
         guns[currentSlot].render(render);
         screen.drawRotate(render,x,y,direction);
 

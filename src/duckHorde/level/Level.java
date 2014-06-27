@@ -84,7 +84,7 @@ public class Level {
     public void add(Entity e) {
         if(e instanceof Player && player==null) {
             player = (Player)e;
-            e.setPoint(width/2,height/2);
+            //e.setPoint((width/2) * Game.PIXEL,(height/2) * Game.PIXEL);
         }
         entities.add(e);
         e.setLevel(this);
