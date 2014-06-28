@@ -74,5 +74,9 @@ public abstract class Gun {
         return damage;
     }
 
+    public int getMaxDistance() {
+        return 100;
+    }
+
     public abstract void render(Render render);
 }

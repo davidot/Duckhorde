@@ -14,17 +14,22 @@ public class Bullet extends Entity {
 
     private int speed;
     private int damage;
+    private int maxDistance;
 
     public Bullet(Direction direction,Gun gun,int x,int y) {
         super(x,y);
         this.speed = gun.getSpeed();
         this.damage = gun.getDamage();
         this.direction = direction;
+        this.maxDistance = gun.getMaxDistance();
     }
 
     @Override
     public void tick() {
-        move(direction,speed);
+        if(maxDistance > 0) {
+            move(direction,speed);
+            maxDistance--;
+        }
     }
 
     @Override
