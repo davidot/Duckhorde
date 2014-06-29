@@ -73,6 +73,7 @@ public abstract class Entity {
                 xNew += speed;
                 break;
         }
+        direction = d;
         int xLevel = xNew /32, yLevel = yNew /32;
         System.out.println("X:" + xNew + "Y:" + yNew);
         System.out.println("XLEVEL:" + xLevel + "YLEVEL:" + yLevel);
@@ -83,7 +84,7 @@ public abstract class Entity {
         }
         x = xNew;
         y = yNew;
-        direction = d;
+
         checkCollisionEntities();
     }
 
