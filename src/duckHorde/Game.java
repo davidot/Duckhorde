@@ -34,7 +34,9 @@ public class Game extends Canvas implements Runnable {
     private BufferedImage renderImg;
     private int[] pixels;
 
+
     private Thread mainThread;
+
     /* Game stuff */
     public Level level;
     public Input input;
