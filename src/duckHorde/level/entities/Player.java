@@ -111,8 +111,7 @@ public class Player extends Entity{
 
     @Override
     public void render(Screen screen) {
-        Render render = new Render(img.width,img.height);
-        render.draw(img,0,0);
+        Render render = img.getCopy();
         guns[currentSlot].render(render);
         screen.drawRotate(render,x,y,direction);
 
