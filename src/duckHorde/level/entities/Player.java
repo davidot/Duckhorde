@@ -26,6 +26,8 @@ public class Player extends Entity{
     private Gun[] guns;
     private ImageRender img;
     private int speed = 1;
+    private int combo = 0;
+    private int comboTick = 0;
 
     public Player(int x,int y) {
         super(x, y);
@@ -59,6 +61,16 @@ public class Player extends Entity{
         if(input.attack.pressed) {
             guns[currentSlot].fire(this,level);
             checkGun();
+        }
+        if(combo > 0) {
+            if(comboTick >= (100-combo)) {
+                combo--;
+                comboTick = 0;
+            } else {
+                comboTick++;
+            }
+        } else {
+            comboTick = 0;
         }
     }
 
@@ -116,4 +128,14 @@ public class Player extends Entity{
         screen.drawRotate(render,x,y,direction);
 
     }
+
+    public int getCombo() {
+        return combo;
+    }
+
+    public void killedEntity(Entity e) {
+        combo++;
+        comboTick = 0;
+    }
+
 }
