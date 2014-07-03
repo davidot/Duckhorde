@@ -42,6 +42,15 @@ public class Bullet extends Entity {
         return new Dimension(2,2);
     }
 
+    @Override
+    public int getMaxHealth() {
+        return -1;
+    }
+
+    @Override
+    public void killedEntity(Entity e) {
+    }
+
     public int getDamage() {
         return damage;
     }

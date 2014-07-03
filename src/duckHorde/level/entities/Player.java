@@ -20,6 +20,7 @@ public class Player extends Entity{
 
     public static final int weaponXOff = 4;
     public static final int weaponYOff = 0;
+    private static final int MIN_COMBOTICK = 15;
 
     private Input input;
     private int currentSlot = 0;
@@ -63,7 +64,7 @@ public class Player extends Entity{
             checkGun();
         }
         if(combo > 0) {
-            if(comboTick >= (100-combo)) {
+            if(comboTick >= (Math.max((100 - combo), MIN_COMBOTICK))) {
                 combo--;
                 comboTick = 0;
             } else {
@@ -96,6 +97,11 @@ public class Player extends Entity{
     @Override
     public Dimension getSize() {
         return new Dimension(32,32);
+    }
+
+    @Override
+    public int getMaxHealth() {
+        return 100;
     }
 
     public void setInput(Input input) {
@@ -133,6 +139,7 @@ public class Player extends Entity{
         return combo;
     }
 
+    @Override
     public void killedEntity(Entity e) {
         combo++;
         comboTick = 0;
