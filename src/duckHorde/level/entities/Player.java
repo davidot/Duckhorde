@@ -27,6 +27,7 @@ public class Player extends Entity{
     private Gun[] guns;
     private ImageRender img;
     private int speed = 1;
+    private int maxCombo = 0;
     private int combo = 0;
     private int comboTick = 0;
 
@@ -64,6 +65,7 @@ public class Player extends Entity{
             checkGun();
         }
         if(combo > 0) {
+            maxCombo = Math.max(maxCombo,combo);
             if(comboTick >= (Math.max((100 - combo), MIN_COMBOTICK))) {
                 combo--;
                 comboTick = 0;
