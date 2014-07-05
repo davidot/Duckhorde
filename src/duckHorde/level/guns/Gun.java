@@ -19,6 +19,7 @@ public abstract class Gun {
     private int maxAmmo = -1;
     private int speed = 8;
     private int damage = 1;
+    private int reloadTime = 0;
 
 
     public int getAmmo() {
@@ -31,6 +32,7 @@ public abstract class Gun {
                 ammo--;
             }
         }
+        reloadTime = getReloadTimer();
     }
 
     public void setEnabled(boolean enabled) {
@@ -46,9 +48,13 @@ public abstract class Gun {
     public abstract void shoot(Player p,Level level);
 
     public void fire(Player p,Level l) {
-        if(getAmmo() !=0) {
+        if(getAmmo() !=0&&reloadTime<=0) {
             shoot(p,l);
             useAmmo();
+        } else {
+            if(reloadTime > 0) {
+                reloadTime--;
+            }
         }
     }
 
@@ -76,6 +82,10 @@ public abstract class Gun {
 
     public int getMaxDistance() {
         return 100;
+    }
+
+    public int getReloadTimer() {
+        return 50;
     }
 
     public abstract void render(Render render);
