@@ -23,4 +23,9 @@ public class UZI extends Gun {
     public void render(Render render) {
 
     }
+
+    @Override
+    public int getReloadTimer() {
+        return 2;
+    }
 }
