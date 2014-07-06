@@ -19,12 +19,10 @@ public abstract class Entity {
     protected int y;
     protected Level level;
     public boolean removed;
-    private int health;
 
     public Entity(int x,int y) {
         this.x = x;
         this.y = y;
-        health = getMaxHealth();
     }
 
 
@@ -104,21 +102,6 @@ public abstract class Entity {
     public abstract void onCollisionTile();
 
     public abstract Dimension getSize();
-
-    public abstract int getMaxHealth();
-
-    public void hurt(Entity from,int damage) {
-        if(getMaxHealth() < 0) {
-            return;
-        }
-        if(health - damage <= 0) {
-            from.killedEntity(this);
-            remove();
-            health = 0;
-            return;
-        }
-        health = health - damage;
-    }
 
     public void remove() {
         removed = true;

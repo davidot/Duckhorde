@@ -43,11 +43,6 @@ public class Bullet extends Entity {
     }
 
     @Override
-    public int getMaxHealth() {
-        return -1;
-    }
-
-    @Override
     public void killedEntity(Entity e) {
     }
 

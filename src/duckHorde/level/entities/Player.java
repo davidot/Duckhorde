@@ -15,7 +15,7 @@ import java.io.IOException;
  * Created by David on 17-6-2014.
  * Duck hordes
  */
-public class Player extends Entity{
+public class Player extends Mob{
 
 
     public static final int weaponXOff = 4;
