@@ -1,10 +1,13 @@
 package duckHorde.level.entities.bullets;
 
+import duckHorde.graphics.Color;
+import duckHorde.graphics.Screen;
 import duckHorde.level.entities.Direction;
 import duckHorde.level.entities.Entity;
 import duckHorde.level.guns.Gun;
 
 import java.awt.Dimension;
+import java.awt.Rectangle;
 
 /**
  * Created by David on 19-6-2014.
@@ -48,5 +51,10 @@ public class Bullet extends Entity {
 
     public int getDamage() {
         return damage;
+    }
+
+    @Override
+    public void render(Screen screen) {
+        screen.fillRect(new Rectangle(getLocation(),getSize()), Color.create(100,100,100));
     }
 }
