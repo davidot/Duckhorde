@@ -39,6 +39,7 @@ public class Level {
     private void generateTest() {
         //TODO generate test duckHorde.level
         setTile(Tile.wall,0,0);
+        setTile(Tile.wall,2,2);
     }
 
     public void setTile( Tile t,int x,int y) {
