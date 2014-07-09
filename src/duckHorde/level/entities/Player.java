@@ -1,6 +1,7 @@
 package duckHorde.level.entities;
 
 import duckHorde.Game;
+import duckHorde.graphics.Color;
 import duckHorde.graphics.ImageRender;
 import duckHorde.graphics.Render;
 import duckHorde.graphics.Screen;
@@ -132,9 +133,9 @@ public class Player extends Mob{
     @Override
     public void render(Screen screen) {
         Render render = img.getCopy();
-        guns[currentSlot].render(render);
+        //guns[currentSlot].render(render);
         screen.drawRotate(render,x,y,direction);
-
+        screen.fillRect(x,y,32,32, Color.create(255,0,255));
     }
 
     public int getCombo() {

@@ -57,11 +57,10 @@ public class Level {
     }
 
     public void tick() {
-        for(Entity e:entities) {
-            e.tick();
-        }
         for(Iterator<Entity> i = entities.iterator(); i.hasNext(); ) {
+
             Entity e = i.next();
+            e.tick();
             if(e.removed) {
                 entities.remove(e);
             }
