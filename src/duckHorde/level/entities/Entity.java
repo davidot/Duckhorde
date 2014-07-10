@@ -35,7 +35,15 @@ public abstract class Entity {
         //Default method don't do anything
     }
 
+    /**
+     *
+     * @param e entity which touched this entity
+     */
     public void touch(Entity e) {
+        if(e instanceof Mob) {
+            System.out.println("Mob touched::" + this.getClass().getName());
+            //Its a mob
+        }
         //Default method don't do anything
     }
 
@@ -51,10 +59,6 @@ public abstract class Entity {
         return direction;
     }
 
-    public void setPoint(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
 
     public void move(Direction d,int speed) {
         System.out.println("Moving " + d + "with " + speed + "as " + this.getClass().getName());
@@ -98,6 +102,7 @@ public abstract class Entity {
             level.getTile(xLevelWidth,yLevel).onTouch(level,xLevelWidth,yLevel,this);
             return;
         }
+
         x = xNew;
         y = yNew;
 
