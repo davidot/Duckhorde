@@ -75,11 +75,27 @@ public abstract class Entity {
         }
         direction = d;
         int xLevel = xNew /32, yLevel = yNew /32;
+        int xLevelWidth = (xNew + getSize().width) / 32, yLevelHeight = (yNew + getSize().height) /32;
         System.out.println("X:" + xNew + "Y:" + yNew);
         System.out.println("XLEVEL:" + xLevel + "YLEVEL:" + yLevel);
         if(!level.getTile(xLevel,yLevel).mayPass(level,xLevel,yLevel,this)) {
             onCollisionTile();
             level.getTile(xLevel,yLevel).onTouch(level,xLevel,yLevel,this);
+            return;
+        }
+        if(!level.getTile(xLevelWidth,yLevelHeight).mayPass(level,xLevelWidth,yLevelHeight,this)) {
+            onCollisionTile();
+            level.getTile(xLevelWidth,yLevelHeight).onTouch(level,xLevelWidth,yLevelHeight,this);
+            return;
+        }
+        if(!level.getTile(xLevel,yLevelHeight).mayPass(level,xLevel,yLevelHeight,this)) {
+            onCollisionTile();
+            level.getTile(xLevel,yLevelHeight).onTouch(level,xLevel,yLevelHeight,this);
+            return;
+        }
+        if(!level.getTile(xLevelWidth,yLevel).mayPass(level,xLevelWidth,yLevel,this)) {
+            onCollisionTile();
+            level.getTile(xLevelWidth,yLevel).onTouch(level,xLevelWidth,yLevel,this);
             return;
         }
         x = xNew;

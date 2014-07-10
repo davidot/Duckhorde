@@ -23,6 +23,9 @@ public class Level {
     public List<Entity> entities = new ArrayList<>();
 
     private Player player;
+    private boolean ticking;
+    private List<Entity> toAdd = new ArrayList<>();
+    private List<Entity> toRemove = new ArrayList<>();
 
     public Level(int width, int height) {
         this.height = height;
@@ -58,14 +61,23 @@ public class Level {
     }
 
     public void tick() {
+        ticking = true;
         for(Iterator<Entity> i = entities.iterator(); i.hasNext(); ) {
 
             Entity e = i.next();
             e.tick();
             if(e.removed) {
-                entities.remove(e);
+               toRemove.add(e);
             }
         }
+        ticking =false;
+        for(Entity e:toRemove) {
+            entities.remove(e);
+        }
+        for(Entity e: toAdd) {
+            entities.add(e);
+        }
+        toAdd.clear();
     }
 
     public void render(Screen screen) {
@@ -86,7 +98,11 @@ public class Level {
             player = (Player)e;
             //e.setPoint((width/2) * Game.PIXEL,(height/2) * Game.PIXEL);
         }
-        entities.add(e);
+        if(!ticking) {
+            entities.add(e);
+        } else {
+            toAdd.add(e);
+        }
         e.setLevel(this);
     }
 

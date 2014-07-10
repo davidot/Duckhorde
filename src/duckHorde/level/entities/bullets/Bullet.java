@@ -32,6 +32,8 @@ public class Bullet extends Entity {
         if(maxDistance > 0) {
             move(direction,speed);
             maxDistance--;
+        } else {
+            remove();
         }
     }
 
@@ -42,7 +44,7 @@ public class Bullet extends Entity {
 
     @Override
     public Dimension getSize() {
-        return new Dimension(2,2);
+        return new Dimension(4,2);
     }
 
     @Override

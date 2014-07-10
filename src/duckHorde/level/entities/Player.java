@@ -99,7 +99,7 @@ public class Player extends Mob{
 
     @Override
     public Dimension getSize() {
-        return new Dimension(32,32);
+        return new Dimension(16,16);
     }
 
     @Override
@@ -135,7 +135,7 @@ public class Player extends Mob{
         Render render = img.getCopy();
         //guns[currentSlot].render(render);
         screen.drawRotate(render,x,y,direction);
-        screen.fillRect(x,y,32,32, Color.create(255,0,255));
+        screen.fillRect(x,y,16,16, Color.create(255,0,255));
     }
 
     public int getCombo() {
