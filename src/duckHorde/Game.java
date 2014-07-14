@@ -4,6 +4,7 @@ import duckHorde.graphics.Screen;
 import duckHorde.level.Level;
 import duckHorde.level.entities.Player;
 import duckHorde.util.Input;
+import duckHorde.util.combo.ComboHandler;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -41,6 +42,8 @@ public class Game extends Canvas implements Runnable {
     public Level level;
     public Input input;
     public Player player;
+    private static ComboHandler comboHandler = new ComboHandler();
+
 
     public int gameTime;
 
@@ -165,5 +168,9 @@ public class Game extends Canvas implements Runnable {
 
     public void renderScreen(Screen screen) {
         level.render(screen);
+    }
+
+    public static ComboHandler getComboHandler() {
+        return comboHandler;
     }
 }

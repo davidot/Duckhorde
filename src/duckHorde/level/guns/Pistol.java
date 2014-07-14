@@ -1,9 +1,11 @@
 package duckHorde.level.guns;
 
+import duckHorde.Game;
 import duckHorde.graphics.Render;
 import duckHorde.level.Level;
 import duckHorde.level.entities.Player;
 import duckHorde.level.entities.bullets.BulletPistol;
+import duckHorde.util.combo.ComboAction;
 
 /**
  * Created by David on 18-6-2014.
@@ -15,6 +17,12 @@ public class Pistol extends Gun {
 
     public Pistol() {
         setEnabled(true);
+        Game.getComboHandler().add(new ComboAction(1) {
+            @Override
+            public void onAction() {
+                speed = Math.max(speed,16);
+            }
+        });
     }
 
     @Override
